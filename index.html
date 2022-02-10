@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bollywood Wordle</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/124816636a.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="main">
+        <div class="top-section">
+            <div class="score">
+                <h1>0</h1>
+            </div>
+        </div>
+
+        <div class="mid-section">
+            <div class="chances">
+                <h1><span id="B">B</span><span id="O1">O</span><span id="L1">L</span><span id="L2">L</span><span id="Y">Y</span><span id="W">W</span><span id="O2">O</span><span id="O3">O</span><span id="D">D</span></h1>
+            </div>
+            <div class="play-section">
+                <div class="box box1">
+                    <h1 id="1"></h1>
+                </div>
+                <div class="box box2">
+                    <h1 id="2"></h1>
+                </div>
+                <div class="box box3">
+                    <h1 id="3"></h1>
+                </div>
+                <div class="box box4">
+                    <h1 id="4"></h1>
+                </div>
+                <div class="box box5">
+                    <h1 id="5"></h1>
+                </div>
+                <div class="box box6">
+                    <h1 id="6"></h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="input">
+                <h1>Enter A Word!</h1>
+                <input type="text" name="" id="guess"  maxlength="1" onblur="getVal()">
+            </div>
+            <div class="button" id="enter">ENTER</div>
+        </div>
+    </div>
+</body>
