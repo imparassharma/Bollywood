@@ -81,3 +81,5 @@ colors.forEach(function(color){
         box.classList.add("")
     })
 })
+
+/*****************/
