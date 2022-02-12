@@ -10,12 +10,18 @@ body{
 
 .main{
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
 .top-section{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 70%;
 }
 
 .color{
@@ -59,15 +65,10 @@ body{
     height: 2rem;
 }
 
-.score{
-    padding: .5rem 3rem;
-    border: solid 2px rgb(15, 15, 15);
-    border-radius: 10px;
-}
-
-.score h1{
-    margin: 0;
-    color: #1B262C;
+.container{
+    border: 5px solid black;
+    padding: 0rem 0rem 4rem 0rem;
+    width: 70%;
 }
 
 .mid-section{

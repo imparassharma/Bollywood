@@ -82,4 +82,3 @@ colors.forEach(function(color){
     })
 })
 
-/*****************/
