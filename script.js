@@ -9,6 +9,7 @@ function getVal(){
 
 /*****************************MAIN SCRIPT************************************************/
 const result = document.querySelector(".result");
+const container = document.querySelector(".container");
 const topsection = document.querySelector(".top-section");
 const midsection = document.querySelector(".mid-section");
 const bottomsection = document.querySelector(".bottom-section");
@@ -27,7 +28,8 @@ enter.addEventListener("click",function(){
         if(arr[i]==input){
             const pos = document.getElementById((i+1));
             pos.innerHTML = input;
-            pos.parentElement.style.backgroundColor = "#17B978";
+            console.log(pos.parentElement);
+            pos.parentElement.className = "box green"
         }
 
     }
@@ -39,6 +41,7 @@ enter.addEventListener("click",function(){
 
     if(life==0){
        result.classList.add("active");
+       container.classList.add("nopadding");
        midsection.classList.add("hidden");
        bottomsection.classList.add("hidden");
        topsection.classList.add("hidden");
@@ -65,20 +68,25 @@ retry.addEventListener("click",function(){
 
 /******************************COLOR SCHEME********************************************/
 const colors = document.querySelectorAll(".circle");
-const box = document.querySelector(".box");
-
+const play = document.getElementById("play");
+const boxes = document.querySelectorAll(".box");
+const main = document.querySelector(".main")
 colors.forEach(function(color){
     color.addEventListener("click",function(e){
-        console.log(e.currentTarget.style.backgroundColor);
-        const circle = e.currentTarget.className;
+        const circle = e.currentTarget;
+        const bg_color = circle.classList[1];
         console.log(circle)
-        var current_color = circle.backgroundColor;
-        console.log(current_color)
         colors.forEach(function(c){
             c.classList.remove("current");
         })
-        circle.classList.add("current");
-        box.classList.add("")
+        boxes.forEach(function(box){
+            if(box.className!="box green"){
+                box.className = "box "+bg_color;
+                main.className = "main "+bg_color+"_theme";
+                circle.classList.add("current");
+            }
+
+        })
     })
 })
 
