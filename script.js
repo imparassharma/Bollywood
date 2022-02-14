@@ -1,5 +1,5 @@
 /******************************MOVIE************************************************/
-const movie = "DANGAL";
+const movie = "DRISHYAM";
 const arr = Array.from(movie);
 
 /******************************INPUT************************************************/
@@ -15,11 +15,29 @@ const midsection = document.querySelector(".mid-section");
 const bottomsection = document.querySelector(".bottom-section");
 const lives = document.getElementById("lives").children;
 const enter = document.getElementById("enter");
+const playsection = document.getElementById("play")
 
+for(let i=0;i<arr.length;i++){
+    var newClass = document.createElement('div');
+    newClass.className = "box";
+    const newChild = document.createElement('h1');
+    newChild.setAttribute('id',i+1);
+    newClass.appendChild(newChild);
+    playsection.appendChild(newClass);
+    
+    if(arr[i]==' '){
+        newClass.classList.add("blank");
+    }
+
+    if(arr[i] == 'A' || arr[i] == 'E' || arr[i] == 'I' || arr[i] == 'O' || arr[i] == 'U'){
+        newClass.className = "box default";
+        newClass.innerHTML = "<h1>"+arr[i]+"</h1>";
+    }
+}
 const index=[];
 let count=0,life=9,i=0;
 
-enter.addEventListener("click",function(){
+enter.addEventListener("click",function(event){
     const input = guess.value;
     console.log(input);
 
@@ -31,7 +49,6 @@ enter.addEventListener("click",function(){
             console.log(pos.parentElement);
             pos.parentElement.className = "box green"
         }
-
     }
 
     if(!arr.includes(input)){
@@ -80,9 +97,9 @@ colors.forEach(function(color){
             c.classList.remove("current");
         })
         boxes.forEach(function(box){
-            if(box.className!="box green"){
-                box.className = "box "+bg_color;
+            if(box.className!="box green" && box.className!="box blank"){
                 main.className = "main "+bg_color+"_theme";
+
                 circle.classList.add("current");
             }
 
