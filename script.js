@@ -38,7 +38,7 @@ const index=[];
 let count=0,life=9,i=0;
 
 enter.addEventListener("click",function(event){
-    const input = guess.value;
+    const input = guess.value.toUpperCase();
     console.log(input);
 
     const isInArray = arr.includes(input);

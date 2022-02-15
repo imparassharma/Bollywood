@@ -273,3 +273,39 @@ body{
 .default{
     background-color: rgba(12, 12, 12, 0.699);
 }
+
+
+
+@media screen and (max-width:400px) {
+
+    body{
+        overflow:visible;
+    }
+
+    .main{
+        padding: 1rem;
+    }
+
+    .container{
+        width: 95%;
+        padding: 0;
+    }
+    
+    .chances h1{
+        font-size: 41px;
+        gap: .7rem;
+    }
+
+    .play-section{
+        margin-top: 2rem;
+    }
+
+    .bottom-section{
+        margin-top: 0;
+    }
+
+    .input h1{
+        width: 50%;
+    }
+
+}
