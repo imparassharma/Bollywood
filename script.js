@@ -1,5 +1,5 @@
 /******************************MOVIE************************************************/
-const movie = "DRISHYAM";
+const movie = "SAAHO";
 const arr = Array.from(movie);
 
 /******************************INPUT************************************************/
@@ -39,17 +39,16 @@ let count=0,life=9,i=0;
 
 enter.addEventListener("click",function(event){
     const input = guess.value.toUpperCase();
-    console.log(input);
-
     const isInArray = arr.includes(input);
     for(i=0;i<arr.length;i++){
         if(arr[i]==input){
             const pos = document.getElementById((i+1));
             pos.innerHTML = input;
-            console.log(pos.parentElement);
             pos.parentElement.className = "box green"
         }
     }
+    
+    input.value = ""
 
     if(!arr.includes(input)){
         life--;
@@ -63,12 +62,28 @@ enter.addEventListener("click",function(event){
        bottomsection.classList.add("hidden");
        topsection.classList.add("hidden");
     }
+/************************************GAME LOST************************************************/
+    var correct =0;
+    for(let i=0;i<arr.length;i++){
+        const childrens = playsection.children[i];
+        if(childrens.className=="box green" || childrens.className=="box default"){
+            correct+=1;
+            console.log(correct)
+        }
+    }
 
-    
-
+    if(correct==arr.length){
+        for(let i=0;i<arr.length;i++)
+        {
+            setTimeout(function(){
+                playsection.children[i].className = "box green";
+                playsection.children[i].classList.add("animate");
+            },i*300)
+        }
+    }
 })
 
-/************************************GAME LOST************************************************/
+
 
 const retry = document.getElementById("retry");
 const reveal = document.getElementById("reveal");
@@ -81,8 +96,6 @@ retry.addEventListener("click",function(){
 
 
 
-
-
 /******************************COLOR SCHEME********************************************/
 const colors = document.querySelectorAll(".circle");
 const play = document.getElementById("play");
@@ -92,7 +105,6 @@ colors.forEach(function(color){
     color.addEventListener("click",function(e){
         const circle = e.currentTarget;
         const bg_color = circle.classList[1];
-        console.log(circle)
         colors.forEach(function(c){
             c.classList.remove("current");
         })

@@ -14,6 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    height: 100vh;
 }
 
 .red_theme{
@@ -271,10 +272,16 @@ body{
 }
 
 .default{
-    background-color: rgba(12, 12, 12, 0.699);
+    background-color: rgba(12, 12, 12, 0.397);
 }
 
-
+.animate{
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 18px;
+    transition: width .2s;
+    transition: height .2s;
+}
 
 @media screen and (max-width:400px) {
 
@@ -308,8 +315,9 @@ body{
         width: 50%;
     }
 
-    .box{
-        width: 5.27rem;
+    .blank{
+        background-color: transparent;
+        width: 5rem;
     }
 
 }
