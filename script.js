@@ -1,5 +1,5 @@
 /******************************MOVIE************************************************/
-const movie = "SAAHO";
+const movie = "KOI MIL GYA";
 const arr = Array.from(movie);
 
 /******************************INPUT************************************************/
@@ -8,7 +8,7 @@ function getVal(){
 }
 
 /*****************************MAIN SCRIPT************************************************/
-const result = document.querySelector(".result");
+const result = document.querySelector(".result-section");
 const container = document.querySelector(".container");
 const topsection = document.querySelector(".top-section");
 const midsection = document.querySelector(".mid-section");
@@ -66,7 +66,7 @@ enter.addEventListener("click",function(event){
     var correct =0;
     for(let i=0;i<arr.length;i++){
         const childrens = playsection.children[i];
-        if(childrens.className=="box green" || childrens.className=="box default"){
+        if(childrens.className=="box green" || childrens.className=="box default" || childrens.className=="box blank"){
             correct+=1;
             console.log(correct)
         }
@@ -76,21 +76,28 @@ enter.addEventListener("click",function(event){
         for(let i=0;i<arr.length;i++)
         {
             setTimeout(function(){
-                playsection.children[i].className = "box green";
-                playsection.children[i].classList.add("animate");
-            },i*300)
+                if(playsection.children[i].className!="box blank"){
+                    playsection.children[i].className = "box green";
+                    playsection.children[i].classList.add("animate");
+                }
+            },i*256)
         }
     }
 })
 
-
-
+/**********************ANSWER REVEAL************** */
 const retry = document.getElementById("retry");
 const reveal = document.getElementById("reveal");
+const countdown = document.querySelector(".countdown");
 
-retry.addEventListener("click",function(){
-
+reveal.addEventListener("click",function(){
+    reveal.innerHTML = movie;
+    reveal.style.backgroundColor="#11171aec"
+    reveal.style.color="white";
+    retry.classList.add("hidden");
+    countdown.classList.add("active");
 })
+
 
 /*************************************GAME WON************************************************/
 
@@ -118,4 +125,5 @@ colors.forEach(function(color){
         })
     })
 })
+
 

@@ -205,25 +205,37 @@ body{
 }
 
 .result{
-    display: none;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15rem;
 }
 
 .active{
-    display: flex;
+    display: flex !important;
+}
+
+.result-section{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10rem;
+    gap: 2rem;
 }
 
 .result img{
     width: 35rem;
+    position: absolute;
+    top: -5rem;
 }
 
 .result .button{
     padding: .7rem 2rem;
-    width: fit-content;
     border: 2px solid black;
-    font-size: 30px;
-    letter-spacing: .5rem;
+    font-size: 28px;
+    letter-spacing: .4rem;
     background-color: transparent;
 }
 
@@ -246,7 +258,7 @@ body{
 
 .lost{
     display: block;
-    font-size: 48px;
+    font-size: 44px;
     border-radius: 2px solid white;
     color: rgb(0, 0, 0);
 }
@@ -281,6 +293,23 @@ body{
     font-size: 18px;
     transition: width .2s;
     transition: height .2s;
+}
+
+.countdown{
+    display: none;
+    flex-direction: column;
+    margin-top: -3rem;
+}
+
+
+.counter{
+    display: flex;
+    gap: 1rem;
+}
+
+.counter .box{
+    background-color:#ff1f1f;
+    color: white;
 }
 
 @media screen and (max-width:400px) {
