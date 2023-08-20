@@ -13,6 +13,12 @@
 </head>
 <body> 
     <div class="main white_theme">
+        <div class="history">
+            <h1>Used Words!</h1>
+            <div class="usedWords" id="used">
+
+            </div>
+        </div>
         <div class="top-section">
             <div class="color">
                 <div class="circle white current"></div>
@@ -63,9 +69,8 @@
             <div class="bottom-section">
                 <div class="input">
                     <h1>ENTER A WORD >></h1>
-                    <input type="text" name="" id="guess"  maxlength="1" onblur="getVal()">
+                    <input type="text" name="" id="guess"  maxlength="1" onblur="getVal()" onkeypress="enterKeyPressed(event)">
                 </div>
-                <div class="button" id="enter">ENTER</div>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 /******************************MOVIE************************************************/
-const movie = "KOI MIL GYA";
+const movie = "BLOODY DADDY";
 const arr = Array.from(movie);
 
 /******************************INPUT************************************************/
@@ -36,24 +36,33 @@ for(let i=0;i<arr.length;i++){
 }
 const index=[];
 let count=0,life=9,i=0;
-
-enter.addEventListener("click",function(event){
+usedStr = "";
+function enterKeyPressed(event){
+    if(event.keyCode==13)
+    {
+        console.log("enter is pressed");
     const input = guess.value.toUpperCase();
     guess.value = "";
     const isInArray = arr.includes(input);
+    const used = document.getElementById("used");
     for(i=0;i<arr.length;i++){
         if(arr[i]==input){
             const pos = document.getElementById((i+1));
             pos.innerHTML = input;
-            pos.parentElement.className = "box green"
+            pos.parentElement.className = "box green";
         }
+
     }
-    
+
     input.value = ""
 
     if(!arr.includes(input)){
         life--;
         lives[8-life].classList.add("wrong");
+        usedStr += input+", ";
+        console.log(usedStr);
+        used.innerHTML = usedStr;
+
     }
 
     if(life==0){
@@ -69,7 +78,6 @@ enter.addEventListener("click",function(event){
         const childrens = playsection.children[i];
         if(childrens.className=="box green" || childrens.className=="box default" || childrens.className=="box blank"){
             correct+=1;
-            console.log(correct)
         }
     }
 
@@ -84,7 +92,9 @@ enter.addEventListener("click",function(event){
             },i*256)
         }
     }
-})
+    }
+    
+}
 
 /**********************ANSWER REVEAL************** */
 const retry = document.getElementById("retry");
